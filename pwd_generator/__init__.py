@@ -120,7 +120,7 @@ class Password(Pwd):
             :param bool specials: optional parameter (True by default)
         """
 
-        choices = [
+        self.choices = [
             self.LOWER_CASES,
             self.UPPER_CASES,
             self.DIGITS,
@@ -128,13 +128,12 @@ class Password(Pwd):
         ]
 
         if not lower_cases:
-            choices.remove(self.LOWER_CASES)
+            self.choices.remove(self.LOWER_CASES)
         if not upper_cases:
-            choices.remove(self.UPPER_CASES)
+            self.choices.remove(self.UPPER_CASES)
         if not digits:
-            choices.remove(self.DIGITS)
+            self.choices.remove(self.DIGITS)
         if not specials:
-            choices.remove(self.SPECIALS)
+            self.choices.remove(self.SPECIALS)
 
-        self.choices = choices
         return self._set(length=length)
